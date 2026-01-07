@@ -30,7 +30,8 @@ public abstract class MixinPlayerEntity {
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/world/World;playSound(Lnet/minecraft/entity/Entity;DDDLnet/minecraft/sound/SoundEvent;Lnet/minecraft/sound/SoundCategory;FF)V"
-        )
+        ),
+        require = 0
     )
     private void modifyAttackSound(World instance, Entity source, double x, double y, double z, SoundEvent sound, SoundCategory category, float volume, float pitch) {
         SoundModifier m = Modules.get().get(SoundModifier.class);

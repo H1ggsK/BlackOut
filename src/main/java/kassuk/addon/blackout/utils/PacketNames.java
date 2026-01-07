@@ -467,7 +467,6 @@ public class PacketNames {
             builder.append("\n}");
             return builder.toString();
         });
-        s2c(OpenHorseScreenS2CPacket.class, "OpenHorseScreen", packet -> "syncId: " + packet.getSyncId() + " horseId: " + packet.getHorseId() + " slotColumnCount: " + packet.getSlotColumnCount());
         s2c(OpenScreenS2CPacket.class, "OpenScreen", packet -> "name: " + packet.getName().getString() + " syncId: " + packet.getSyncId() + " screenHandlerType: " + packet.getScreenHandlerType());
         s2c(OpenWrittenBookS2CPacket.class, "OpenWrittenBook", packet -> "hand: " + packet.getHand().name());
         s2c(OverlayMessageS2CPacket.class, "OverlayMessage", packet -> "text: " + packet.text().getString());

@@ -31,3 +31,7 @@ bin/
 # fabric
 
 run/
+remappedSrc/
+
+# libs (local dependencies - keep the directory but ignore jars, will be removed when baritone updates)
+libs/*.zip
