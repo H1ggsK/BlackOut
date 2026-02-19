@@ -58,12 +58,12 @@ public class Automation extends BlackOutModule {
         }
 
         if (!mc.player.getBlockPos().equals(lastPos) && inAHole(mc.player)) {
-            switch (clientmode.get()) {
-                case Future -> {
-                    ChatUtils.sendPlayerMsg(".toggle feettrap true");
-                }
-                case Blackout -> {
-                    if (holeSurround.get() && !surround.isActive()) {
+            if (holeSurround.get() && !surround.isActive()) {
+                switch (clientmode.get()) {
+                    case Future -> {
+                        ChatUtils.sendPlayerMsg(".toggle feettrap true");
+                    }
+                    case Blackout -> {
                         surround.toggle();
                         surround.sendToggledMsg("enabled by Automation");
                     }
