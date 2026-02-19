@@ -6,9 +6,11 @@ import kassuk.addon.blackout.enums.HoleType;
 import kassuk.addon.blackout.utils.HoleUtils;
 import meteordevelopment.meteorclient.events.render.Render3DEvent;
 import meteordevelopment.meteorclient.settings.BoolSetting;
+import meteordevelopment.meteorclient.settings.EnumSetting;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
 import meteordevelopment.meteorclient.systems.modules.Modules;
+import meteordevelopment.meteorclient.utils.player.ChatUtils;
 import meteordevelopment.orbit.EventHandler;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
@@ -23,6 +25,18 @@ public class Automation extends BlackOutModule {
     }
 
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
+
+    private final Setting<ClientMode> clientmode = sgGeneral.add(new EnumSetting.Builder<ClientMode>()
+        .name("Client")
+        .description("What client you want to use for surround.")
+        .defaultValue(ClientMode.Blackout)
+        .build()
+    );
+
+    public enum ClientMode {
+        Blackout,
+        Future,
+    }
 
     private final Setting<Boolean> holeSurround = sgGeneral.add(new BoolSetting.Builder()
         .name("Hole Surround")
@@ -44,9 +58,16 @@ public class Automation extends BlackOutModule {
         }
 
         if (!mc.player.getBlockPos().equals(lastPos) && inAHole(mc.player)) {
-            if (holeSurround.get() && !surround.isActive()) {
-                surround.toggle();
-                surround.sendToggledMsg("enabled by Automation");
+            switch (clientmode.get()) {
+                case Future -> {
+                    ChatUtils.sendPlayerMsg(".toggle feettrap true");
+                }
+                case Blackout -> {
+                    if (holeSurround.get() && !surround.isActive()) {
+                        surround.toggle();
+                        surround.sendToggledMsg("enabled by Automation");
+                    }
+                }
             }
         }
 
