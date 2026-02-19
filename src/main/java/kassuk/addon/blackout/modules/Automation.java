@@ -28,7 +28,7 @@ public class Automation extends BlackOutModule {
 
     private final Setting<ClientMode> clientmode = sgGeneral.add(new EnumSetting.Builder<ClientMode>()
         .name("Client")
-        .description("What client you want to use for surround.")
+        .description("What client to use for surround.")
         .defaultValue(ClientMode.Blackout)
         .build()
     );
