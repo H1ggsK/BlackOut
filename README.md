@@ -18,7 +18,7 @@ The development of the addon might not be super active due to us having our own 
  - Enjoy the addon.
  - Join the Discord server if you have any issues with it.
 
-#### Latest build: [https://github.com/H1ggsK/BlackOut/releases/latest](https://github.com/H1ggsK/BlackOut/releases/latest)
+#### Latest build: [Latest Build](https://github.com/Marccccccccccccccc/BlackOut/releases/tag/1.5.2)
 
 #### Credits
 Doogie13 for helping with the block mining calculations and step offsets.

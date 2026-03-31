@@ -23,7 +23,7 @@ import java.util.List;
 
 public class MineESP extends BlackOutModule {
     public MineESP() {
-        super(BlackOut.BLACKOUT, "Mine ESP,", "Renders a box at blocks being mined by other players.");
+        super(BlackOut.BLACKOUT, "Mine ESP", "Renders a box at blocks being mined by other players.");
     }
 
     private final SettingGroup sgGeneral = settings.getDefaultGroup();

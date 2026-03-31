@@ -54,6 +54,7 @@ public class BlackOut extends MeteorAddon {
         modules.add(new Automation());
         modules.add(new AutoMend());
         modules.add(new AutoMine());
+        modules.add(new AutoCart());
         modules.add(new AutoMoan());
         modules.add(new AutoPearl());
         initializeAutoPVP(modules);
